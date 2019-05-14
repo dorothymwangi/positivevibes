@@ -1,6 +1,3 @@
-# positivevibes
-Spring Boot application: A platform where individuals can practice gratitude daily 
-
 # Positive-Vibes-Liftoff-Demo-Project
 Spring Boot application: A platform where individuals can practice gratitude daily
 
@@ -12,3 +9,4 @@ Spring Boot application: A platform where individuals can practice gratitude dai
 * Share/view other's posts
 
 # License
+[GNU General Public License v3.0](https://github.com/dorothymwangi/positivevibes/blob/master/LICENSE)
