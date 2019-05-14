@@ -14,9 +14,4 @@ public class HelloController {
         return "Hello World!";
     }
 
-    @RequestMapping(value = "goodbye")
-    @ResponseBody
-    public String goodbye(){
-        return "Goodbye";
-    }
 }
