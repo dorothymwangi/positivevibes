@@ -6,6 +6,8 @@ import org.hibernate.validator.constraints.Email;
 
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="user")
@@ -31,6 +33,10 @@ public class User {
     @NotNull
     @Pattern(regexp = "(\\S){6,20}", message = "Password must have 6-20 non-whitespace characters")
     private String password;
+
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<Post> posts = new ArrayList<>();
 
     public User(String firstName, String lastName, String email, String password){
         this.firstName = firstName;
