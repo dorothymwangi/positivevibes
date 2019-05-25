@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.security.Principal;
 
 @Controller
-@RequestMapping("user")
+@RequestMapping(value = "")
 public class AuthenticationController {
 
     @Autowired
@@ -23,7 +23,7 @@ public class AuthenticationController {
     public String displayRegisterForm(Model model) {
         model.addAttribute("title", "Register");
         model.addAttribute(new User());
-        return "user/register";
+        return "/register";
     }
 
     @RequestMapping(value = "register", method = RequestMethod.POST)
@@ -31,11 +31,11 @@ public class AuthenticationController {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Register");
 
-            return "user/register";
+            return "/register";
         }
 
         userDao.save(newUser);
-        return "user/profile";
+        return "/profile";
     }
 
     @RequestMapping(value = "login", method = RequestMethod.GET)

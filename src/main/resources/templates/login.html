@@ -5,6 +5,13 @@
 
 <h1 th:text="${title}">Default Title</h1>
 
+<div th:if = "${param.error}">
+    Invalid username and password.
+</div>
+<div th:if = "${param.logout}">
+    You have been logged out.
+</div>
+
 <form method="post" style="max-width:600px;" th:action="@{/login}">
     <div class="form-group">
         <label for="email">Email</label>

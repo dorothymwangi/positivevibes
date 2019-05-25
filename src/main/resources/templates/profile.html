@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<style>
+
+</style>
+<body>
+    <h1 th:text="${title}">Default Title</h1>
+
+
+
+    <!--<h1 th:inline = "text">Hello [[${#httpServletRequest.remoteUser}]]!</h1> -->
+
+<div class ="container profile>">
+
+    <form method = "post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+
+                    <div class="file btn btn-lg btn-primary">
+                        <p>Upload profile picture</p>
+                        <input type="file" name="pic" accept="image/*" class="rounded-top" value="submit"/>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <h1> Hello First Name </h1>
+
+            </div>
+
+            <div class="col-md-2">
+
+                <nav>
+                    <a href="/">Home</a>
+
+
+                </nav>
+
+            </div>
+
+        </div>
+
+    </form>
+
+
+
+
+    <p>
+
+    </p>
+    <form method="post" th:object="${post}">
+
+        <p>What are you grateful for today?</p>
+
+        <!--<div th:text="'Created: ' + ${#dates.format(post.createDate, 'dd-MMM-yyyy'")}></div>-->
+
+        <!--<div class="form-group">
+
+            <input type = "date">
+
+            <input class="form-control" th:field="*{entry}" />
+            <span th:errors="*{entry}" class="error"></span>
+        </div>-->
+
+        <input type = "submit" value = "New Post"/>
+
+    </form>
+
+    <form th:action = "@{/logout}" method = "post">
+
+        <input type = "submit" value = "Sign Out"/>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>
