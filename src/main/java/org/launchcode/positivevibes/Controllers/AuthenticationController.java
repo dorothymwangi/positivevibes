@@ -35,7 +35,7 @@ public class AuthenticationController {
         }
 
         userDao.save(newUser);
-        return "/profile";
+        return "redirect:profile/" + newUser.getId();
     }
 
     @RequestMapping(value = "login", method = RequestMethod.GET)

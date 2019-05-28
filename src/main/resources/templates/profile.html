@@ -5,13 +5,13 @@
 
 </style>
 <body>
-    <h1 th:text="${title}">Default Title</h1>
+
 
 
 
     <!--<h1 th:inline = "text">Hello [[${#httpServletRequest.remoteUser}]]!</h1> -->
 
-<div class ="container profile>">
+<div class = "container "  style = "background: pink; border:3px solid #cecece; height: 100px;">
 
     <form method = "post" th:object="${user}">
         <div class="row">
@@ -28,11 +28,9 @@
 
             <div class="col-md-6">
 
+                <h1 style= "display:inline">Welcome</h1>
 
-                <h1> Hello</h1>
-
-
-
+                <h2 style= "display:inline" th:text="${firstName}"></h2>
 
 
             </div>
@@ -40,8 +38,8 @@
             <div class="col-md-2">
 
                 <nav>
-                    <a href="/">Home</a>
-
+                    <a href="/">Home</a> |
+                    <a href="/">Sign Out</a>
 
                 </nav>
 
@@ -51,37 +49,70 @@
 
     </form>
 
+</div>
+
+
+    <div class ="container " style="background: pink; height: 600px; border:3px solid #cecece;">
+        <form method="post" th:object="${post}">
+
+            <div class="col-md-6">
+                <div style="background: white; height: 200px;border:3px solid #cecece;">
+
+                <p>What are you grateful for today?</p>
+
+                <!--<div th:text="'Created: ' + ${#dates.format(post.createDate, 'dd-MMM-yyyy'")}></div>-->
+
+                <!--<div class="form-group">
+
+                    <input type = "date">
+
+                    <input class="form-control" th:field="*{entry}" />
+                    <span th:errors="*{entry}" class="error"></span>
+                </div>-->
+
+
+               <input type = "submit" value = "New Post"/>
+
+                </div>
+
+                <div style="background: white; height: 200px;border:3px solid #cecece;">
+
+                    <p>Feeling</p>
+                    <input type = "submit" value = "Click me"/>
+
+                </div>
+
+                <div style="background: white; height: 196px;border:3px solid #cecece;">
+
+                    <p>Share something awesome!</p>
+                    <input type = "submit" value = "Share"/>
 
 
 
-    <p>
+                </div>
 
-    </p>
-    <form method="post" th:object="${post}">
 
-        <p>What are you grateful for today?</p>
+            </div>
 
-        <!--<div th:text="'Created: ' + ${#dates.format(post.createDate, 'dd-MMM-yyyy'")}></div>-->
+                <div class="col-md-6" style="background: white; height: 596px;border:3px solid #cecece;">
+                    <p>Your gratitude entries</p>
+                </div>
 
-        <!--<div class="form-group">
 
-            <input type = "date">
 
-            <input class="form-control" th:field="*{entry}" />
-            <span th:errors="*{entry}" class="error"></span>
-        </div>-->
 
-        <input type = "submit" value = "New Post"/>
-
-    </form>
+        </form>
 
     <form th:action = "@{/logout}" method = "post">
 
-        <input type = "submit" value = "Sign Out"/>
+        <!--<input type = "submit" value = "Sign Out"/>-->
 
     </form>
 
 </div>
+
+
+
 
 </body>
 
