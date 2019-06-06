@@ -53,8 +53,9 @@
 
     <div class="col-md-5" style="margin-top:5px">
 
+        <form method = "post" th:object="${post}" action="/profile">
+
           <div class="form-group" style="background: white; height: 240px;border:3px solid #cecece;">
-              <form method = "post" th:object="${post}">
 
                     <p>What are you grateful for today?</p>
 
@@ -63,7 +64,7 @@
                         <input class="form-control" th:field="*{id}"/>
                         <span th:errors="*{id}" class="error"></span>
                     </div>-->
-                   <input type="hidden" name="postId" th:field="*{id}"/>
+                   <input type="" name="postId" th:field="*{id}"/>
 
                     <div class="form-group">
                         <label th:for = "createDate">Date mm/dd/yy</label>
@@ -76,6 +77,8 @@
                         <input class="form-control" th:field="*{entry}"/>
                         <span th:errors="*{entry}" class="error"></span>
                     </div>
+
+                     <input type="" name="UserId" th:field="*{id}"/>
 
                    <!-- <div class="form-group">
                         <label th:for = "user">User Id</label>
@@ -102,9 +105,8 @@
                    <!--<p><a href = "/post/">Create New Post</a></p>-->
 
                   <!-- <p><a th:href="'/menu/add-item/' + ${menu.id}">Add Cheese</a></p>-->
-
-               </form>
           </div>
+        </form>
 
           <div style=" margin-top:5px; background: white; height: 200px;border:3px solid #cecece;">
 

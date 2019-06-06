@@ -34,10 +34,11 @@ public class ProfileController {
         return "/profile";
     }
 
-    @RequestMapping(value = "/profile/{userId}", method = RequestMethod.POST)
-    public String processNewPost(@ModelAttribute @Valid Post newPost,@PathVariable int userId, Errors errors, Model model) {
+    @RequestMapping(value = "/profile", method = RequestMethod.POST)
+    public String processNewPost(@ModelAttribute @Valid Post newPost,@RequestParam int userId, Errors errors, Model model) {
         if (errors.hasErrors()) {
-           model.addAttribute("post", new Post());
+            model.addAttribute(userDao.findOne(userId));
+            //model.addAttribute("post", new Post());
 
             return "/profile";
         }

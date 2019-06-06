@@ -45,6 +45,9 @@ public class User {
         this.password = password;
     }
 
+    public void addEntry(Post entry){
+        posts.add(entry);
+    }
 
     public User(){}
 
