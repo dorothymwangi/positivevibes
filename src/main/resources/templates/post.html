@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body>
+
+<div class="form-group" style="background: white; height: 320px;border:3px solid #cecece;">
+    <form method = "post" th:object="${post}">
+        <p>What are you grateful for today?</p>
+
+        <!-- <input type="" name="postId" th:value="*{post.id}" />-->
+
+        <div class="form-group">
+            <label th:for = "id">Post Id</label>
+            <input class="form-control" th:field="*{id}"/>
+            <span th:errors="*{id}" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label th:for = "createDate">Date mm/dd/yy</label>
+            <input class="form-control" th:field="*{createDate}"/>
+            <span th:errors="*{createDate}" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label th:for = "entry">Entry</label>
+            <input class="form-control" th:field="*{entry}"/>
+            <span th:errors="*{entry}" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label th:for = "user">User Id</label>
+            <input class="form-control" th:field="*{user}"/>
+            <span th:errors="*{user}" class="error"></span>
+        </div>
+
+        <!--<input type="" name="userId" th:value="*{post.userId}" />-->
+
+        <!--<div th:text="'Created: ' + ${#dates.format(post.createDate, 'dd-MMM-yyyy'")}></div>-->
+
+        <!--<div class="form-group">
+
+            <input type = "date">
+
+            <input class="form-control" th:field="*{entry}" />
+            <span th:errors="*{entry}" class="error"></span>
+        </div>-->
+
+        <input type = "submit" value = "New Post"/>
+
+    </form>
+
+
+
+</div>
+</body>
+</html>

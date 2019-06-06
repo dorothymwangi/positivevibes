@@ -2,42 +2,65 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 
-<body class="container">
-<h1 th:text="${title}">Default Title</h1>
+<body>
+<div class = "container "  style = "background: pink; border:3px solid #cecece; height: 720px;">
 
-<nav th:replace="fragments :: navigation"></nav>
-
-<form method="post" style="max-width:600px;" th:object="${user}">
-    <div class="form-group">
-        <label th:for="firstName">First Name</label>
-        <input class="form-control" th:field="*{firstName}" />
-        <span th:errors="*{firstName}" class="error"></span>
+    <div class="col-md-2">
     </div>
 
-    <div class="form-group">
-        <label th:for="lastName">Last Name</label>
-        <input class="form-control" th:field="*{lastName}" />
-        <span th:errors="*{lastName}" class="error"></span>
+    <div class="col-md-8" style = "background: white; border:3px solid #cecece;margin-top:50px;height: 650px;">
+
+
+        <div style = "margin-bottom:50px; margin-left:100px">
+            <h1 th:text="${title}">Default Title</h1>
+        </div>
+
+        <!--<nav th:replace="fragments :: navigation"></nav>-->
+
+
+        <form method="post" style="max-width:600px;" th:object="${user}">
+            <div class="form-group" style = "margin-bottom:30px; margin-left:100px">
+                <label th:for="firstName">First Name</label>
+                <input class="form-control" th:field="*{firstName}" />
+                <span th:errors="*{firstName}" class="error"></span>
+            </div>
+
+            <div class="form-group" style = "margin-bottom:30px; margin-left:100px">
+                <label th:for="lastName">Last Name</label>
+                <input class="form-control" th:field="*{lastName}" />
+                <span th:errors="*{lastName}" class="error"></span>
+            </div>
+
+            <div class="form-group" style = "margin-bottom:30px; margin-left:100px">
+                <label th:for="email">Email</label>
+                <input class="form-control" th:field="*{email}" />
+                <span th:errors="*{email}" class="error"></span>
+            </div>
+
+            <div class="form-group" style = "margin-bottom:100px; margin-left:100px">
+                <label th:for="password">Password</label>
+                <input class="form-control" th:field="*{password}" />
+                <span th:errors="*{password}" class="error"></span>
+            </div>
+
+            <div style = "margin-left:530px">
+                <input type="submit" value="Sign Up" />
+            </div>
+       <!-- <a href="/profile" class="btn btn-primary">Sign Up</a>-->
+
+        </form>
     </div>
 
-    <div class="form-group">
-        <label th:for="email">Email</label>
-        <input class="form-control" th:field="*{email}" />
-        <span th:errors="*{email}" class="error"></span>
+    <div class="col-md-2">
+
+        <nav>
+            <a href="/">Home</a>
+
+        </nav>
+
     </div>
 
-    <div class="form-group">
-        <label th:for="password">Password</label>
-        <input class="form-control" th:field="*{password}" />
-        <span th:errors="*{password}" class="error"></span>
-    </div>
-
-    <input type="submit" value="Sign Up" />
-
-   <!-- <a href="/profile" class="btn btn-primary">Sign Up</a>-->
-
-
-</form>
+</div>
 
 </body>
 </html>

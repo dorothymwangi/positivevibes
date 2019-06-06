@@ -7,10 +7,6 @@
 <body>
 
 
-
-
-    <!--<h1 th:inline = "text">Hello [[${#httpServletRequest.remoteUser}]]!</h1> -->
-
 <div class = "container "  style = "background: pink; border:3px solid #cecece; height: 100px;">
 
     <form method = "post" th:object="${user}">
@@ -20,7 +16,7 @@
 
                     <div class="file btn btn-lg btn-primary">
                         <p>Upload profile picture</p>
-                        <input type="file" name="pic" accept="image/*" class="rounded-top" value="submit"/>
+                        <input type="file" name="pic" accept="image/*" class="round " value="submit"/>
                     </div>
                 </div>
 
@@ -52,13 +48,44 @@
 </div>
 
 
-    <div class ="container " style="background: pink; height: 620px; border:3px solid #cecece;">
-        <form method="post" th:object="${post}">
+<div class ="container " style="background: pink; height: 620px; border:3px solid #cecece;">
+    <!--<form method="post" th:object="${post}">-->
 
-            <div class="col-md-5" style="margin-top:5px">
-                <div style="background: white; height: 250px;border:3px solid #cecece;">
+    <div class="col-md-5" style="margin-top:5px">
 
-                <p>What are you grateful for today?</p>
+          <div class="form-group" style="background: white; height: 240px;border:3px solid #cecece;">
+              <form method = "post" th:object="${post}">
+
+                    <p>What are you grateful for today?</p>
+
+                    <!--<div class="form-group">
+                        <label th:for = "id">Post Id</label>
+                        <input class="form-control" th:field="*{id}"/>
+                        <span th:errors="*{id}" class="error"></span>
+                    </div>-->
+                   <input type="hidden" name="postId" th:field="*{id}"/>
+
+                    <div class="form-group">
+                        <label th:for = "createDate">Date mm/dd/yy</label>
+                        <input class="form-control" th:field="*{createDate}"/>
+                        <span th:errors="*{createDate}" class="error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label th:for = "entry">Entry</label>
+                        <input class="form-control" th:field="*{entry}"/>
+                        <span th:errors="*{entry}" class="error"></span>
+                    </div>
+
+                   <!-- <div class="form-group">
+                        <label th:for = "user">User Id</label>
+                        <input class="form-control" th:field="*{user}"/>
+                        <span th:errors="*{user}" class="error"></span>
+                    </div>-->
+
+                  <!-- <input type="hidden" name="userId" th:field="${user.id}"/>-->
+
+                    <!--<input type="" name="userId" th:value="*{post.userId}" />-->
 
                 <!--<div th:text="'Created: ' + ${#dates.format(post.createDate, 'dd-MMM-yyyy'")}></div>-->
 
@@ -70,49 +97,38 @@
                     <span th:errors="*{entry}" class="error"></span>
                 </div>-->
 
+                    <input type = "submit" value = "New Post"/>
 
-               <input type = "submit" value = "New Post"/>
+                   <!--<p><a href = "/post/">Create New Post</a></p>-->
 
-                </div>
+                  <!-- <p><a th:href="'/menu/add-item/' + ${menu.id}">Add Cheese</a></p>-->
 
-                <div style=" margin-top:5px; background: white; height: 200px;border:3px solid #cecece;">
+               </form>
+          </div>
 
-                    <p>Feeling</p>
-                    <input type = "submit" value = "Click me!"/>
+          <div style=" margin-top:5px; background: white; height: 200px;border:3px solid #cecece;">
 
-                </div>
+                <p>Feeling</p>
+                <input type = "submit" value = "Click me!"/>
 
-                <div style="margin-top:5px; background: white; height: 146px;border:3px solid #cecece;">
+          </div>
 
-                    <p>Share something awesome!</p>
-                    <input type = "submit" value = "Share"/>
+           <div style="margin-top:5px; background: white; height: 146px;border:3px solid #cecece;">
 
+                <p>Share something awesome!</p>
+                <input type = "submit" value = "Share"/>
 
-
-                </div>
-
-
-            </div>
-
-                <div class="col-md-7" style="margin-top:5px; background: white; height: 606px;border:3px solid #cecece;">
-                    <p>Your gratitude entries</p>
-                </div>
+          </div>
 
 
+     </div>
 
 
-        </form>
-
-    <form th:action = "@{/logout}" method = "post">
-
-        <!--<input type = "submit" value = "Sign Out"/>-->
-
-    </form>
+    <div class="col-md-7" style="margin-top:5px; background: white; height: 606px;border:3px solid #cecece;">
+        <p>Your gratitude entries</p>
+    </div>
 
 </div>
-
-
-
 
 </body>
 

@@ -26,17 +26,18 @@ public class Post {
     private String entry;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
-    @NotNull
+    @JoinColumn(name = "user_id")
     private User user;
+    //private int userId;
+
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
+   /* public void setId(int id) {
         this.id = id;
-    }
+    }*/
 
     public Date getCreateDate() {
         return createDate;
@@ -54,11 +55,15 @@ public class Post {
         this.entry = entry;
     }
 
-    public User getUser() {
+   public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
     }
+
+   /* public int getUserId() { return userId; }
+
+    public void setUserId(int userId) { this.userId = userId; }*/
 }
