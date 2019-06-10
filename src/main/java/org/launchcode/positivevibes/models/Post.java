@@ -2,10 +2,13 @@ package org.launchcode.positivevibes.models;
 
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -17,9 +20,10 @@ public class Post {
     @Column(name = "post_id")
     private int id;
 
-    @Temporal(TemporalType.TIMESTAMP)
+
+    //@Temporal(TemporalType.TIMESTAMP)
     @Column(name = "create_date", nullable = false, updatable = false)
-    @CreationTimestamp
+    //@CreationTimestamp
     private Date createDate;
 
     @Column(name = "entry", columnDefinition = "TEXT")
@@ -29,6 +33,17 @@ public class Post {
     @JoinColumn(name = "user_id")
     private User user;
     //private int userId;
+
+   /*@ManyToMany
+    private List<Post> posts = new ArrayList<>();
+
+    public void addPost(Post item){
+        posts.add(item);
+    }*/
+
+    public Post(){}
+
+    public Post(Date createDate, String entry){ this.entry = entry;this.createDate = createDate;}
 
 
     public int getId() {
@@ -63,5 +78,6 @@ public class Post {
         this.user = user;
     }
 
+   // public List<Post> getPosts() { return posts; }
 
 }

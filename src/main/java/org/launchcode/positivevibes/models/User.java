@@ -38,7 +38,7 @@ public class User {
     @JoinColumn(name = "user_id")
     private List<Post> posts = new ArrayList<>();
 
-    public User(String firstName, String lastName, String email, String password){
+   /* public User(String firstName, String lastName, String email, String password){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -47,7 +47,7 @@ public class User {
 
     public void addEntry(Post entry){
         posts.add(entry);
-    }
+    }*/
 
     public User(){}
 

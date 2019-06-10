@@ -2,7 +2,6 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <style>
-
 </style>
 <body>
 
@@ -53,77 +52,68 @@
 
     <div class="col-md-5" style="margin-top:5px">
 
-        <form method = "post" th:object="${post}" action="/profile">
+        <form method = "post" th:object="${post}">
 
-          <div class="form-group" style="background: white; height: 240px;border:3px solid #cecece;">
+            <div class="form-group" style="background: white; height: 240px;border:3px solid #cecece;">
 
-                    <p>What are you grateful for today?</p>
+                <p>What are you grateful for today?</p>
 
-                    <!--<div class="form-group">
-                        <label th:for = "id">Post Id</label>
-                        <input class="form-control" th:field="*{id}"/>
-                        <span th:errors="*{id}" class="error"></span>
-                    </div>-->
-                   <input type="" name="postId" th:field="*{id}"/>
+                <!--   <input type="" name="postId" th:field="*{id}"/>-->
 
-                    <div class="form-group">
-                        <label th:for = "createDate">Date mm/dd/yy</label>
-                        <input class="form-control" th:field="*{createDate}"/>
-                        <span th:errors="*{createDate}" class="error"></span>
-                    </div>
+                 <div class="form-group">
+                      <label th:for = "createDate">Date mm/dd/yy</label>
+                      <input class="form-control" th:field="*{createDate}"/>
+                      <span th:errors="*{createDate}" class="error"></span>
+                  </div>
 
-                    <div class="form-group">
-                        <label th:for = "entry">Entry</label>
-                        <input class="form-control" th:field="*{entry}"/>
-                        <span th:errors="*{entry}" class="error"></span>
-                    </div>
+                <div class="form-group">
+                    <label th:for = "entry">Entry</label>
+                    <input class="form-control" th:field="*{entry}"/>
+                    <span th:errors="*{entry}" class="error"></span>
+                </div>
+                <!-- <input type="" name="UserId" th:field="*{id}"/> -->
+                                <!-- <div class="form-group">
+                                     <label th:for = "user">User Id</label>
+                                     <input class="form-control" th:field="*{user}"/>
+                                     <span th:errors="*{user}" class="error"></span>
+                                 </div>-->
 
-                     <input type="" name="UserId" th:field="*{id}"/>
+                <!-- <input type="hidden" name="userId" th:field="${user.id}"/>-->
 
-                   <!-- <div class="form-group">
-                        <label th:for = "user">User Id</label>
-                        <input class="form-control" th:field="*{user}"/>
-                        <span th:errors="*{user}" class="error"></span>
-                    </div>-->
-
-                  <!-- <input type="hidden" name="userId" th:field="${user.id}"/>-->
-
-                    <!--<input type="" name="userId" th:value="*{post.userId}" />-->
+                <!--<input type="" name="userId" th:value="*{post.userId}" />-->
 
                 <!--<div th:text="'Created: ' + ${#dates.format(post.createDate, 'dd-MMM-yyyy'")}></div>-->
 
                 <!--<div class="form-group">
-
                     <input type = "date">
-
                     <input class="form-control" th:field="*{entry}" />
                     <span th:errors="*{entry}" class="error"></span>
                 </div>-->
 
-                    <input type = "submit" value = "New Post"/>
+                <input type = "submit" value = "New Post"/>
 
-                   <!--<p><a href = "/post/">Create New Post</a></p>-->
+                <!--<p><a href = "/post/">Create New Post</a></p>-->
 
-                  <!-- <p><a th:href="'/menu/add-item/' + ${menu.id}">Add Cheese</a></p>-->
-          </div>
+                <!-- <p><a th:href="'/menu/add-item/' + ${menu.id}">Add Cheese</a></p>-->
+            </div>
         </form>
 
-          <div style=" margin-top:5px; background: white; height: 200px;border:3px solid #cecece;">
+        <div style=" margin-top:5px; background: white; height: 200px;border:3px solid #cecece;">
 
-                <p>Feeling</p>
-                <input type = "submit" value = "Click me!"/>
+            <p>Feeling</p>
+            <input type = "submit" value = "Click me!"/>
 
-          </div>
+        </div>
 
-           <div style="margin-top:5px; background: white; height: 146px;border:3px solid #cecece;">
+        <div style="margin-top:5px; background: white; height: 146px;border:3px solid #cecece;">
 
-                <p>Share something awesome!</p>
-                <input type = "submit" value = "Share"/>
+            <p>Share something awesome!</p>
+            <input type = "submit" value = "Share"/>
 
-          </div>
+        </div>
 
 
-     </div>
+    </div>
 
 
     <div class="col-md-7" style="margin-top:5px; background: white; height: 606px;border:3px solid #cecece;">

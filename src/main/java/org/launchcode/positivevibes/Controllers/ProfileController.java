@@ -18,6 +18,8 @@ public class ProfileController {
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
     private PostDao postDao;
 
     @RequestMapping(value = "/profile/{userId}", method = RequestMethod.GET)
@@ -34,21 +36,21 @@ public class ProfileController {
         return "/profile";
     }
 
-    @RequestMapping(value = "/profile", method = RequestMethod.POST)
-    public String processNewPost(@ModelAttribute @Valid Post newPost,@RequestParam int userId, Errors errors, Model model) {
+    @RequestMapping(value = "/profile/{userId}", method = RequestMethod.POST)
+    public String processNewPost(Model model, @ModelAttribute @Valid Post post, @PathVariable int userId, Errors errors) {
         if (errors.hasErrors()) {
-            model.addAttribute(userDao.findOne(userId));
-            //model.addAttribute("post", new Post());
+           model.addAttribute(userDao.findOne(userId));
+           model.addAttribute("post", new Post());
 
             return "/profile";
         }
 
 
         User u = userDao.findOne(userId);
-        newPost.setUser(u);
-        postDao.save(newPost);
+        post.setUser(u);
+        postDao.save(post);
         //return "redirect:/profile/" + newPost.getId();
-        return "redirect:/profile/";
+        return "redirect:" + u.getId();
     }
 
 }

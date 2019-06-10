@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@Controller
+/*@Controller
+
 public class PostController {
 
     @Autowired
@@ -22,8 +23,13 @@ public class PostController {
     @Autowired
     private PostDao postDao;
 
-    @RequestMapping(value = "/post", method = RequestMethod.GET)
-    public String displayNewPostForm(Model model) {
+
+    @RequestMapping(value = "/post/{userId}", method = RequestMethod.GET)
+    public String displayNewPostForm(Model model @PathVariable int userId) {
+
+        User user = userDao.findOne(userId);
+        model.addAttribute("title", "User : "+ user.getName());
+
         model.addAttribute("title", "New Post");
         model.addAttribute("user", userDao.findAll());
         model.addAttribute(new Post());
@@ -99,4 +105,4 @@ public class PostController {
     }*/
 
 
-}
+
