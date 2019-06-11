@@ -3,7 +3,16 @@
 <head th:replace="fragments :: head"></head>
 <body>
 
-<h1 th:text="${title}">Default Title</h1>
+<div class = "container "  style = "background: pink; border:3px solid #cecece; height: 720px;">
+
+    <div class="col-md-2">
+    </div>
+
+    <div class="col-md-8" style = "background: white; border:3px solid #cecece;margin-top:50px;height: 650px;">
+
+        <div style = "margin-bottom:70px; margin-left:100px">
+            <h1 th:text="${title}">Default Title</h1>
+        </div>
 
 <div th:if = "${param.error}">
     Invalid username and password.
@@ -12,28 +21,47 @@
     You have been logged out.
 </div>
 
-<form method="post" style="max-width:600px;" th:action="@{/login}">
-    <div class="form-group">
+<form method="post" style = "max-width:600px;" th:action="@{/login}">
+    <div class="form-group" style = "margin-bottom:50px; margin-left:100px">
         <label for="email">Email</label>
         <input id="email" class="form-control" name="email"/>
     </div>
-    <div class="form-group">
+
+    <div class="form-group" style = "margin-bottom:70px; margin-left:100px">
         <label for="password">Password</label>
         <input id="password" class="form-control" type="password" name="password" />
     </div>
 
-    <input type="submit" value="Log In" />
+    <div style = "margin-bottom:100px;margin-left:530px">
+     <input type="submit" class="btn btn-primary" value="Log In" />
+    </div>
+
+    <div class="form-group" style = "margin-bottom:30px; margin-left:100px">
+        <hr/>
+    </div>
 
 
-        <div class="form-group">
+    <div class="form-group" style = "margin-bottom:30px; margin-left:100px">
             <p>Not a registered user? </p>
-        </div>
+    </div>
 
-
-    <input type="submit" value="Sign Up" />
+    <div class="form-group" style = "margin-bottom:30px; margin-left:530px">
+        <input type="submit" class="btn btn-primary" value="Sign Up" />
+    </div>
 
 
 </form>
+    </div>
 
+    <div class="col-md-2">
+
+        <nav>
+            <a href="/">Home</a>
+
+        </nav>
+
+    </div>
+
+</div>
 </body>
 </html>

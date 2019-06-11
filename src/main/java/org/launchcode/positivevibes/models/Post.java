@@ -33,13 +33,8 @@ public class Post {
     @JoinColumn(name = "user_id")
     private User user;
     //private int userId;
+    //private List<Post> posts = new ArrayList<>();
 
-   /*@ManyToMany
-    private List<Post> posts = new ArrayList<>();
-
-    public void addPost(Post item){
-        posts.add(item);
-    }*/
 
     public Post(){}
 
@@ -49,10 +44,6 @@ public class Post {
     public int getId() {
         return id;
     }
-
-   /* public void setId(int id) {
-        this.id = id;
-    }*/
 
     public Date getCreateDate() {
         return createDate;
@@ -78,6 +69,6 @@ public class Post {
         this.user = user;
     }
 
-   // public List<Post> getPosts() { return posts; }
+   //public List<Post> getPosts() { return posts; }
 
 }

@@ -35,7 +35,7 @@ public class AuthenticationController {
         }
 
         userDao.save(newUser);
-        return "redirect:profile" + newUser.getId();
+        return "redirect:profile/" + newUser.getId();
     }
 
     @RequestMapping(value = "login", method = RequestMethod.GET)
@@ -43,19 +43,19 @@ public class AuthenticationController {
         model.addAttribute("title", "Log In");
 
 
-       /* if (user != null)
-            return "redirect:/profile";
+       if (user != null)
+            return "redirect:/";
 
         if (error != null)
             model.addAttribute("message", "danger|Your username and password are invalid");
 
         if (logout != null)
-            model.addAttribute("message", "info|You have logged out");*/
+            model.addAttribute("message", "info|You have logged out");
 
 
 
 
-        return "user/login";
+        return "login";
 
     }
 

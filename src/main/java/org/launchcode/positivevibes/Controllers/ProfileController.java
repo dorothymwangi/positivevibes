@@ -53,6 +53,19 @@ public class ProfileController {
         return "redirect:" + u.getId();
     }
 
+    /*@RequestMapping(value = "/profile/{userId}")
+    public String viewEntries(Model model,@PathVariable int userId){
+
+        List<Post> posts = postDao.findAll();
+
+
+
+
+
+    }*/
+
+
+
 }
 
 
