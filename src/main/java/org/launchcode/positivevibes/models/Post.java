@@ -33,7 +33,8 @@ public class Post {
     @JoinColumn(name = "user_id")
     private User user;
     //private int userId;
-    //private List<Post> posts = new ArrayList<>();
+
+   // private List<Post> posts = new ArrayList<>();
 
 
     public Post(){}

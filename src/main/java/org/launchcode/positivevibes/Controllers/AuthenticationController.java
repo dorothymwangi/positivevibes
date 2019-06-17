@@ -8,9 +8,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import javax.servlet.http.HttpSession;
 
 import javax.validation.Valid;
 import java.security.Principal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping(value = "")
@@ -38,34 +44,28 @@ public class AuthenticationController {
         return "redirect:profile/" + newUser.getId();
     }
 
-    @RequestMapping(value = "login", method = RequestMethod.GET)
-    public String displayLoginForm(Model model, Principal user, String error, String logout) {
-        model.addAttribute("title", "Log In");
 
+    /*@RequestMapping(value="/login", method =RequestMethod.GET)
+    public String login(Model model){
+        model.addAttribute("loguser", new User());
 
-       if (user != null)
-            return "redirect:/";
-
-        if (error != null)
-            model.addAttribute("message", "danger|Your username and password are invalid");
-
-        if (logout != null)
-            model.addAttribute("message", "info|You have logged out");
-
-
-
-
-        return "login";
+        return"/login";
 
     }
 
+    @RequestMapping(value="/login", method =RequestMethod.POST)
+    public String login(Model model,@ModelAttribute("loguser") User loguser, HttpSession session){
 
-    /*@GetMapping("login")
-    public String login(Principal principal) {
-        if (principal != null) {
-            return "redirect:/home";
-        }
-        return "/login";
+        System.out.println("Info received: "+loguser);
+        session.setAttribute("user", loguser);
+
+
+
+        if (loguser.getEmail().equals("")
+
+        return"/login";
+
     }*/
+
 
 }

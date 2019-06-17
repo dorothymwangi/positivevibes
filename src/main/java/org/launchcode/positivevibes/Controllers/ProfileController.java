@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -39,8 +41,8 @@ public class ProfileController {
     @RequestMapping(value = "/profile/{userId}", method = RequestMethod.POST)
     public String processNewPost(Model model, @ModelAttribute @Valid Post post, @PathVariable int userId, Errors errors) {
         if (errors.hasErrors()) {
-           model.addAttribute(userDao.findOne(userId));
-           model.addAttribute("post", new Post());
+            model.addAttribute(userDao.findOne(userId));
+            model.addAttribute("post", new Post());
 
             return "/profile";
         }
@@ -53,18 +55,17 @@ public class ProfileController {
         return "redirect:" + u.getId();
     }
 
-    /*@RequestMapping(value = "/profile/{userId}")
-    public String viewEntries(Model model,@PathVariable int userId){
+    @RequestMapping(value = "/profile/{userId}")
+    public String user (Model model, @PathVariable int userId) {
 
-        List<Post> posts = postDao.findAll();
+        User u = userDao.findOne(userId);
+        List<Post> userPosts = u.getUserPosts();
 
+        model.addAttribute(userPosts);
 
+        return "redirect:" + userId;
 
-
-
-    }*/
-
-
+    }
 
 }
 

@@ -36,7 +36,7 @@ public class User {
 
     @OneToMany
     @JoinColumn(name = "user_id")
-    private List<Post> posts = new ArrayList<>();
+    private List<Post> userPosts = new ArrayList<>();
 
    /* public User(String firstName, String lastName, String email, String password){
         this.firstName = firstName;
@@ -86,6 +86,14 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public List<Post> getUserPosts() {
+        return userPosts;
+    }
+
+    /*public void setUserPosts(List<Post> userPosts) {
+        this.userPosts = userPosts;
+    }*/
 }
 
 

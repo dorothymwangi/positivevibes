@@ -8,9 +8,10 @@
 
 <div class = "container "  style = "background: pink; border:3px solid #cecece; height: 100px;">
 
-    <form method = "post" th:object="${user}">
+    <form method = "post" th:object="${user}" >
         <div class="row">
             <div class="col-md-4">
+                <form method="POST" enctype="multipart/form-data">
                 <div class="profile-img">
 
                     <div class="file btn btn-lg btn-primary">
@@ -18,6 +19,7 @@
                         <input type="file" name="pic" accept="image/*" class="round " value="submit"/>
                     </div>
                 </div>
+                </form>
 
             </div>
 
@@ -120,10 +122,28 @@
 
     </div>
 
+    <!--<form th:object="${userPosts}">-->
+        <div class="col-md-7" style="margin-top:5px; background: white; height: 606px;border:3px solid #cecece;">
+            <p>My gratitude entries</p>
 
-    <div class="col-md-7" style="margin-top:5px; background: white; height: 606px;border:3px solid #cecece;">
-        <p>Your gratitude entries</p>
-    </div>
+            <table class="table">
+
+                <tr>
+                    <th>Date</th>
+                    <th>Entry</th>
+
+                </tr>
+
+                <tr th:each="post : ${userPosts}">
+                    <td th:text="${userPosts.createDate}"></td>
+                    <td th:text="${userPosts.entry}"></td>
+
+                </tr>
+
+            </table>
+
+        </div>
+    <!--</form>-->
 
 </div>
 

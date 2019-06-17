@@ -2,13 +2,12 @@ package org.launchcode.positivevibes.service;
 
 import org.launchcode.positivevibes.models.User;
 
-import java.util.Optional;
 
 public interface UserService {
 
-    Optional<User> findById(int id);
+    User findUserByEmail(String email);
 
-    Optional<User> findByEmail(String email);
+    User findUserByPassword(String password);
 
-    User save(User user);
+    void saveUser(User user);
 }

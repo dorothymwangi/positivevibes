@@ -12,6 +12,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /*@Controller
 
@@ -104,5 +105,26 @@ public class PostController {
         return "redirect:profile/{userId}/" + newPost.getId();
     }*/
 
+/*@Controller
+
+public class PostController {
+
+    @Autowired
+    private UserDao userDao;
+
+    @Autowired
+    private PostDao postDao;
+
+    @RequestMapping(value = "/profile/{userId}")
+    public String viewUserPosts(Model model, @PathVariable int userId) {
+
+        User u = userDao.findOne(userId);
+        List<Post> posts = u.getPosts();
+        model.addAttribute(posts);
+
+        return "redirect:" + userId;
+
+    }
+}*/
 
 
