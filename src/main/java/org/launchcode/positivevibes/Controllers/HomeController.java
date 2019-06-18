@@ -37,6 +37,10 @@ public class HomeController {
 
         return "index";
     }
+
+
+    //Source:http://aralmighty.com/uploading-files-spring-boot
+
     @RequestMapping(value="/upload", method= RequestMethod.POST)
     String fileUploads(Model model, @RequestParam("file") MultipartFile file) {
 
@@ -54,7 +58,7 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @RequestMapping(value="", method=RequestMethod.GET)
+    @RequestMapping(value="/file", method=RequestMethod.GET)
     @ResponseBody
     ResponseEntity<InputStreamResource> uploadedFile() throws IOException {
         Path filePath = fileService.findLastFile().getFilePath();

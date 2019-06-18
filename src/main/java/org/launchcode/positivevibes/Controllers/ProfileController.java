@@ -12,6 +12,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -29,11 +30,21 @@ public class ProfileController {
 
         User user = userDao.findOne(userId);
 
-
-        //model.addAttribute("title", "User Profile");
         model.addAttribute("firstName", user.getfirstName());
         model.addAttribute("user", user);
         model.addAttribute(new Post());
+
+        //TODO: Get from database by user_id instead of grabbing all users
+        List<Post> allPosts = (List<Post>) postDao.findAll();
+
+        List<Post> userPosts = new ArrayList<Post>();
+        for(Post post : allPosts){
+            if(post.getUser().getId() == user.getId()){
+                userPosts.add(post);
+            }
+        }
+
+        model.addAttribute("userPosts", userPosts);
 
         return "/profile";
     }
@@ -53,18 +64,6 @@ public class ProfileController {
         postDao.save(post);
         //return "redirect:/profile/" + newPost.getId();
         return "redirect:" + u.getId();
-    }
-
-    @RequestMapping(value = "/profile/{userId}")
-    public String user (Model model, @PathVariable int userId) {
-
-        User u = userDao.findOne(userId);
-        List<Post> userPosts = u.getUserPosts();
-
-        model.addAttribute(userPosts);
-
-        return "redirect:" + userId;
-
     }
 
 }

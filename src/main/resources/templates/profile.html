@@ -122,7 +122,7 @@
 
     </div>
 
-    <!--<form th:object="${userPosts}">-->
+    <form th:object="${userPosts}">
         <div class="col-md-7" style="margin-top:5px; background: white; height: 606px;border:3px solid #cecece;">
             <p>My gratitude entries</p>
 
@@ -135,15 +135,15 @@
                 </tr>
 
                 <tr th:each="post : ${userPosts}">
-                    <td th:text="${userPosts.createDate}"></td>
-                    <td th:text="${userPosts.entry}"></td>
+                    <td th:text="${post.createDate}"></td>
+                    <td th:text="${post.entry}"></td>
 
                 </tr>
 
             </table>
 
         </div>
-    <!--</form>-->
+    </form>
 
 </div>
 
