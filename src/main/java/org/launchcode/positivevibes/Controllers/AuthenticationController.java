@@ -45,27 +45,24 @@ public class AuthenticationController {
     }
 
 
-    /*@RequestMapping(value="/login", method =RequestMethod.GET)
-    public String login(Model model){
-        model.addAttribute("loguser", new User());
+  /*  @RequestMapping(value = "login", method = RequestMethod.GET,  params = {"email", "password"})
+    //@ResponseBody
+    public String getLogin(@RequestParam (name = "email"), @RequestParam (name = "password"), Model model) {
 
-        return"/login";
+        List<User> allUsers = (List<User>) userDao.findAll();
+
+        for (User user : allUsers) {
+            if (user.getEmail() != email || user.getPassword() != password) {
+
+                model.addAttribute("Incorrect username or password");
+
+                return "login'";
+
+            }
+            return "/profile" + user.getId();
+
+            }
+        return "profile";*/
 
     }
 
-    @RequestMapping(value="/login", method =RequestMethod.POST)
-    public String login(Model model,@ModelAttribute("loguser") User loguser, HttpSession session){
-
-        System.out.println("Info received: "+loguser);
-        session.setAttribute("user", loguser);
-
-
-
-        if (loguser.getEmail().equals("")
-
-        return"/login";
-
-    }*/
-
-
-}

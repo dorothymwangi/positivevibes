@@ -34,7 +34,7 @@ public class ProfileController {
         model.addAttribute("user", user);
         model.addAttribute(new Post());
 
-        //TODO: Get from database by user_id instead of grabbing all users
+        //TODO: Figure out how to get from database by user_id instead of grabbing all users
         List<Post> allPosts = (List<Post>) postDao.findAll();
 
         List<Post> userPosts = new ArrayList<Post>();

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<div class = "container "  style = "background: pink;border:3px solid #cecece; height: 150px;">
+    <form th:object="${quote}">
+
+            <div class="col-md-9" style = "margin-top:50px;">
+
+                <p th:text="${quote}"></p>
+
+
+            </div>
+
+
+        <div class="col-md-3">
+            <nav>
+                <a href="/">My Profile</a> |
+                <a href="/">Home</a> |
+                <a href="/">Sign Out</a>
+
+            </nav>
+        </div>
+
+    </form>
+
+</div>
+
+
+
+</body>
+</html>
+
+
+
